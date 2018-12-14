@@ -5,15 +5,15 @@ Node::Node(){
   next=0;
 }
 
-Node::Node(Object* data){
+Node::Node(Usuario* data){
   this->data = data;
   next = 0;
 }
 
-Object* Node::getData(){
+Usuario* Node::getData(){
   return data;
 }
-void Node::setData(Object* pData){
+void Node::setData(Usuario* pData){
   data = pData;
 }
 
@@ -25,5 +25,5 @@ void Node::setNext(Node* pNext){
 }
 
 Node::~Node(){
-  return;
+
 }

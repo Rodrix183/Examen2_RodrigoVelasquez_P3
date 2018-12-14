@@ -1,19 +1,19 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "Object.h"
+#include "Usuario.h"
 
 class Node{
 private:
-  Object* data;
+  Usuario* data;
   Node* next;
 
 public:
-  Node(Object*);
+  Node(Usuario*);
   Node();
 
-  Object* getData();
-  void setData(Object*);
+  Usuario* getData();
+  void setData(Usuario*);
 
   Node* getNext();
   void setNext(Node*);
