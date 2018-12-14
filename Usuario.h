@@ -3,9 +3,12 @@
 
 #include <vector>
 #include <string>
+#include <fstream>
 
 using std::string;
 using std::vector;
+using std::ifstream;
+using std::ostream;
 
 class Usuario{
 private:
@@ -31,6 +34,11 @@ public:
 
   vector<string> getLista();
   void setLista(vector<string>);
+
+  void read(ifstream&);
+  void write(ostream&);
+
+  friend ostream& operator<<(ostream&,Usuario*);
 
 };
 

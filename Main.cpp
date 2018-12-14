@@ -20,8 +20,11 @@ int main(){
 
   Usuario * _user;
   string log_user = "", log_pas ="";
+  int op_log = 0;
   do{
-    cout<<"PINDER"<<endl
+    cout<<"_____________________________________________"<<endl;
+    cout<<"__________        |P|INDER          _________"<<endl
+    <<"_____________________________________________"<<endl
     <<"1. Registrar "<<endl
     <<"2. Login"<<endl
     <<"3. Salir"<<endl;
@@ -38,17 +41,19 @@ int main(){
         cin>>edad;
         cout<<"Ingrese genero: "<<endl;
         cin>>genero;
-        /*while(interes != "s" || interes != "S"){
+        while(interes != "s"){
           cout<<"Presione 'S' para salir"<<endl
           <<"Ingrese algun interes que tenga "<<endl;
           cin>>interes;
-        }*/
+        }
 
 
         //agregar a la pila
 
         //nombre,usuario,contrasena,edad,genero
-        _user->setData(new Usuario(nombre,user,password,edad,genero));
+        ofstream archivo("ListaUsuarios.rodrix",std::ios::binary);
+        Usuario * _user = new Usuario(nombre,user,password,edad,genero);
+        _user;
       }break;
 
       case 2:{
@@ -58,15 +63,41 @@ int main(){
         cout<<"Ingrese password "<<endl;
         cin>>log_pas;
 
-        for (int i = 0; i < lista.size(); i++) {
-          if (log_user == lista.at(i)->getUsuario && log_pas == lista.at(i)->getContrasena()) {
+        /*for (int i = 0; i < lista.size(); i++) {
+          if (log_user == lista.at(i)->getUsuario() && log_pas == lista.at(i)->getContrasena()) {
             flag = true;
           }else{
             cout<<"Datos no validos! "<<endl;
             flag = false;
           }
         }//fin for
+        */
+        if (flag == true) {
+          do{
+            cout<<"1. Ver Sugeridos          "
+            <<"2. Ver Contactos          "
+            <<"3. Ver Resto de Contactos          "
+            <<"4. Cerrar Sesion          "<<endl;
+            cin>>op_log;
+            switch (op_log) {
+              case 1:{//ver Contactos Sugeridos
 
+              }break;
+
+              case 2:{//Ver Contactos
+
+              }break;
+
+              case 3:{//Ver Resto de Contactos
+
+              }break;
+
+              default:
+                op_log = 4;
+                flag = false;
+            }//fin switch
+          }while(op_log!=4);
+        }//fin if
 
       }break;
 
