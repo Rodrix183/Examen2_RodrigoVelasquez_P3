@@ -5,12 +5,8 @@
 #include "Stack.h"
 #include <fstream>
 #include <string>
-using std::ifstream;
-using std::ofstream;
-using std::cout;
-using std::endl;
-using std::cin;
-using std::string;
+
+using namespace std;
 
 int main(){
   string nombre = "",user = "", password = "",genero = "", interes = "N";
@@ -21,6 +17,7 @@ int main(){
   Usuario * _user;
   string log_user = "", log_pas ="";
   int op_log = 0;
+  //Stack * pila = new LinkedStack();
   do{
     cout<<"_____________________________________________"<<endl;
     cout<<"__________        |P|INDER          _________"<<endl
@@ -51,9 +48,14 @@ int main(){
         //agregar a la pila
 
         //nombre,usuario,contrasena,edad,genero
-        ofstream archivo("ListaUsuarios.rodrix",std::ios::binary);
-        Usuario * _user = new Usuario(nombre,user,password,edad,genero);
-        _user;
+        //ofstream archivo("ListaUsuarios.rodrix",std::ios::binary);
+        //Usuario * _user = new Usuario(nombre,user,password,edad,genero);
+        //_user->write(archivo);
+        ofstream archivo;
+        archivo.open("ListaUsuarios.txt",std::ios::app);
+        archivo<<nombre<<";"<<user<<";"<<password<<";"<<edad<<";"<<genero<<endl;
+        archivo.close();
+        cout<<"               Usuario Creado Exitosamente!               "<<endl;
       }break;
 
       case 2:{
@@ -63,7 +65,9 @@ int main(){
         cout<<"Ingrese password "<<endl;
         cin>>log_pas;
 
-        /*for (int i = 0; i < lista.size(); i++) {
+        //ifstream archivo("ListaUsuarios.rodrix",std::ios::binary);
+        //aqui leer el archivo binario
+        /*while () {
           if (log_user == lista.at(i)->getUsuario() && log_pas == lista.at(i)->getContrasena()) {
             flag = true;
           }else{
@@ -72,6 +76,7 @@ int main(){
           }
         }//fin for
         */
+
         if (flag == true) {
           do{
             cout<<"1. Ver Sugeridos          "
