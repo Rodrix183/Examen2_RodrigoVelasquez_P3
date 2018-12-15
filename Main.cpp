@@ -83,7 +83,7 @@ int main(){
             stringstream user_lec;
             stringstream pass_lec;
             stringstream age_lec;
-            stringstream gender_lec;
+            stringstream gender_le;
             for (int i = 0; i < data.size(); i++) {
               if (data[i] == ';') {
                 contador++;
