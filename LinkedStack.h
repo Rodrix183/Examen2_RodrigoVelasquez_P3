@@ -4,7 +4,7 @@
 #include "Node.h"
 #include "Stack.h"
 
-class LinkedStack{
+class LinkedStack : public Stack{
 private:
   Node* inicio;
   int size = 0;

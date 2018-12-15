@@ -3,6 +3,7 @@
 #include "Node.h"
 #include "LinkedStack.h"
 #include "Stack.h"
+#include <sstream>
 #include <fstream>
 #include <string>
 
@@ -17,7 +18,7 @@ int main(){
   Usuario * _user;
   string log_user = "", log_pas ="";
   int op_log = 0;
-  //Stack * pila = new LinkedStack();
+  Stack * pila = new LinkedStack();
   do{
     cout<<"_____________________________________________"<<endl;
     cout<<"__________        |P|INDER          _________"<<endl
@@ -48,12 +49,9 @@ int main(){
         //agregar a la pila
 
         //nombre,usuario,contrasena,edad,genero
-        //ofstream archivo("ListaUsuarios.rodrix",std::ios::binary);
-        //Usuario * _user = new Usuario(nombre,user,password,edad,genero);
-        //_user->write(archivo);
         ofstream archivo;
         archivo.open("ListaUsuarios.txt",std::ios::app);
-        archivo<<nombre<<";"<<user<<";"<<password<<";"<<edad<<";"<<genero<<endl;
+        archivo<<nombre<<";"<<user<<";"<<password<<";"<<edad<<";"<<genero<<";"<<endl;
         archivo.close();
         cout<<"               Usuario Creado Exitosamente!               "<<endl;
       }break;
@@ -67,15 +65,65 @@ int main(){
 
         //ifstream archivo("ListaUsuarios.rodrix",std::ios::binary);
         //aqui leer el archivo binario
-        /*while () {
-          if (log_user == lista.at(i)->getUsuario() && log_pas == lista.at(i)->getContrasena()) {
-            flag = true;
-          }else{
-            cout<<"Datos no validos! "<<endl;
-            flag = false;
-          }
-        }//fin for
-        */
+        ifstream archivo;
+        string data,seleccionado;
+
+        string getname,getuse,getpass,getgenero;
+        int getedad;
+        int contador = 0;
+        archivo.open("ListaUsuarios.txt",std::ios::app);
+        if (archivo.fail()) {
+          cout<<"No se pudo abrir"<<endl;
+        }
+
+        while (!archivo.eof()) {
+            getline(archivo,data);
+            contador = 0;
+            stringstream name_lec;
+            stringstream user_lec;
+            stringstream pass_lec;
+            stringstream age_lec;
+            stringstream gender_lec;
+            for (int i = 0; i < data.size(); i++) {
+              if (data[i] == ';') {
+                contador++;
+              }
+              if (data[i] != ';' && contador==0) {
+                name_lec >> data[i];
+              }
+              if (data[i] != ';' && contador==1) {
+                user_lec >> data[i];
+              }
+              if (data[i] != ';' && contador==2) {
+                pass_lec >> data[i];
+              }
+              if (data[i] != ';' && contador==3) {
+                 age_lec >> data[i];
+              }
+              if (data[i] != ';' && contador==4) {
+                gender_lec >> data[i];
+              }
+            }//fin del for
+
+            //aqui es la asignacion
+            getname = name_lec.str();
+            getuse = user_lec.str();
+            getpass = pass_lec.str();
+            string getedade = age_lec.str();
+            getgenero = gender_lec.str();
+            //getedad = std::stoi(getedade);
+
+            if (log_user == getuse && log_pas == getpass) {
+              flag = true;
+              break;
+            }else{
+              cout<<"Datos erroneos"<<endl;
+              flag = false;
+            }
+
+        }
+
+        //pch = strtok();
 
         if (flag == true) {
           do{

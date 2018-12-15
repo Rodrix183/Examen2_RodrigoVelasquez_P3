@@ -1,1 +1,2 @@
 Rodrigo;rodrix183;zatura;20;masculino
+Osman;omejia;o1234;34;masculino;
