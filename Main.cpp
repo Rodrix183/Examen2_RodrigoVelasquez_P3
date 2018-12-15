@@ -90,26 +90,35 @@ int main(){
               }
               if (data[i] != ';' && contador==0) {
                 name_lec >> data[i];
+                //cout<<name_lec<<endl;
               }
               if (data[i] != ';' && contador==1) {
                 user_lec >> data[i];
+                //cout<<use_lec<<endl;
               }
               if (data[i] != ';' && contador==2) {
                 pass_lec >> data[i];
+                //cout<<pas_lec<<endl;
               }
               if (data[i] != ';' && contador==3) {
                  age_lec >> data[i];
+                 //cout<<age_lec<<endl;
               }
               if (data[i] != ';' && contador==4) {
                 gender_lec >> data[i];
+                //cout<<gen_lec<<endl;
               }
             }//fin del for
 
             //aqui es la asignacion
             getname = name_lec.str();
+            //cout<<getname<<endl;
             getuse = user_lec.str();
+            //cout<<getuse<<endl;
             getpass = pass_lec.str();
+            //cout<<getpass<<endl;
             string getedade = age_lec.str();
+            //cout<<getedade<<endl;
             getgenero = gender_lec.str();
             //getedad = std::stoi(getedade);
 
