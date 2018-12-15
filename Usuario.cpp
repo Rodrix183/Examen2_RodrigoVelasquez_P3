@@ -15,6 +15,11 @@ Usuario::Usuario(string name,string user,string pass,int age,string gender){
   edad = age;
   genero = gender;
 }
+
+Usuario::Usuario(){
+
+}
+
 Usuario::~Usuario(){
 
 }
@@ -89,18 +94,21 @@ void Usuario::read(ifstream& in){
   //nombre
   char nameBuffer[size];
   in.read(nameBuffer,size);
+  nameBuffer[size] = 0;
   nombre = nameBuffer;
 
   //Usuario
   in.read(reinterpret_cast<char*>(&size),sizeof(int));
   char userBuffer[size];
   in.read(userBuffer,size);
+  userBuffer[size] = 0;
   usuario = userBuffer;
 
   //Contrasena
   in.read(reinterpret_cast<char*>(&size),sizeof(int));
   char passBuffer[size];
   in.read(passBuffer,size);
+  passBuffer[size] = 0;
   contrasena = passBuffer;
 
   //Edad
@@ -110,5 +118,6 @@ void Usuario::read(ifstream& in){
   in.read(reinterpret_cast<char*>(&size),sizeof(int));
   char genderBuffer[size];
   in.read(genderBuffer,size);
+  genderBuffer[size]=0;
   genero = genderBuffer;
 }

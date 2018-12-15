@@ -18,6 +18,7 @@ private:
 public:
 
   Usuario(string,string,string,int,string);
+  Usuario();
   ~Usuario();
 
   string getNombre();
